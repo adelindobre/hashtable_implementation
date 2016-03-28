@@ -1,0 +1,15 @@
+Dobre Grigore Adelin 333CC 
+Tema1 SO
+
+Detalii implementare:
+Din main, in functie de nr de argumente se apeleaza functia readFromStdin sau readFromFiles.
+Parsarea comenzii se face in parseCommand. Se imaprte comanda primita in tokeni, se verifica numele functiei si se apeleaza comanda corespunzatoare.
+
+Structurile create sunt Elem, care contine campul char* value si un pointer catre urmatoarea structura de acelasi tip. Un vector de Elem, alocat dinamic va reprezanta un bucket in hastable.
+Structura Hash_table contine un vector de bucketuri(Elem**) si campul size indica numarul de bucketuri.
+In cazul operatiei de resize, creez un nou tabel cu noua dimensiune, pe care il populez cu valorile din vechiul tabel si apoi copiez adresa noului table in cel vechi, dupa ce eliberez memoria ocupata devechiul tabel.
+
+Teste picate:
+	Local, imi pica un singur test pe Linux. Este vorba de testul 25. La acest test imi da o eroare de tipul "malloc(): memory corruption (fast)" si nu pot adauga elemente noi in hashtable dupa ce fac resize. Probelma este la functia addMember. Dupa ce aloc memorie pentru new_node, nu ma lasa sa aloc memorie si pentru campul new_node->value. In momentul asta programul afiseaza eroarea.
+
+
